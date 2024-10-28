@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+    <style>
+        body {
+            height: 100%;
+            background-image: linear-gradient(#40cbff, #4740ff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        p, button {
+            position: fixed;
+            transform: translate(-50%, -50%);
+        }
+        
+        p {
+            background-color: #1f4fb9;
+            color: white;
+            border-radius: 20%;
+            padding: 1%;            
+        }
+        
+                
+        @media (orientation: landscape) {
+            #bestHeight {
+                font-size: 200%;
+                left: 50%;
+            }
+            
+            #screenTime {
+                top: 15%;
+                font-size: 200%;
+                left: 50%;
+            }
+            
+            button {
+                height: 10vh;
+                color: white;
+                background-color: #14347a;
+                touch-action: manipulation;
+                user-select: none;
+                font-size: 200%;
+                border-radius: 15%;
+                left: 50%;
+            }
+        }
+        
+        @media (orientation: portrait) {
+            #bestHeight {
+                left: 50%;
+                font-size: 300%;
+            }
+            
+            #screenTime {
+                top: 8%;
+                left: 50%;
+                font-size: 300%;
+            }
+            
+            button {
+                height: 6vh;
+                width: 15vh;            
+                color: white;
+                background-color: #14347a;
+                touch-action: manipulation;
+                user-select: none;
+                font-size: 400%;
+                border-radius: 15%;
+                left: 50%;            
+            }
+            
+            #reset {
+                top: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <p id="bestHeight">Best Height: 0</p>
+    <p id="screenTime">Screen Time: 0</p>
+    <button id="reset" onclick="deleteCookie('bestHeight'); deleteCookie('screenTime')">Reset</button>
+    <script>
+    if(getCookie("bestHeight") !== undefined) {
+        document.getElementById("bestHeight").innerText = "Best Height: " + getCookie("bestHeight") + "m";
+    }
+    
+    if(getCookie("screenTime") !== undefined) {
+        document.getElementById("screenTime").innerText = "Screen Time: " + Math.round(getCookie("screenTime") / 60) + " minutes";
+    }
+        
+    //thanks javascript.info/cookie
+    function getCookie(name) {
+      let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    function setCookie(name, value, attributes = {}) {
+
+      attributes = {
+        path: '/',
+        expires: new Date(Date.now() + 1e20),
+        ...attributes
+      };
+
+      if (attributes.expires instanceof Date) {
+        attributes.expires = attributes.expires.toUTCString();
+      }
+
+      let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+      for (let attributeKey in attributes) {
+        updatedCookie += "; " + attributeKey;
+        let attributeValue = attributes[attributeKey];
+        if (attributeValue !== true) {
+          updatedCookie += "=" + attributeValue;
+        }
+      }
+
+      document.cookie = updatedCookie;
+    }
+
+    function deleteCookie(name) {
+      setCookie(name, "", {
+        'max-age': -1
+      })
+    }
+    
+    </script>
+</body>
+</html>

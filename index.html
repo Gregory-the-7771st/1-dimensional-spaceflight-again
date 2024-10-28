@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1d sfs</title>
+    <style>
+        body {
+            height: 100%;
+            background-image: linear-gradient(#40cbff, #4740ff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+       button {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            width: 30vh;
+            height: 10vh;
+            left: 50%;
+            font-size: 5vh;
+            border-radius: 10%;
+            color: white;
+            background-color: #14347a;      
+        }
+        
+        #play {
+            top: 20%;            
+        }
+        
+        #settings {
+            top: 40%;            
+        }
+        
+        #about {
+            top: 60%;            
+        }
+        
+        #stats {
+            top: 80%;
+        }
+    </style>
+</head>
+<body>
+    <form nethod="POST" action="play.html">
+        <button id="play">Play</button>
+    </form>
+    <form nethod="POST" action="settings.html">
+        <button id="settings">Settings</button>
+    </form>
+    <form nethod="POST" action="about.html">
+        <button id="about">About</button>
+    </form>
+    <form nethod="POST" action="stats.html">
+        <button id="stats">Statistics</button>
+    </form>
+</body>
+</html>

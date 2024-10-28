@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1D Spaceflight Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="main"></canvas>
+    <canvas id="engineControl"></canvas>
+    <button onclick="start()" id="start">start</button>
+    <button onclick="addPart({...fuelTank})" class="part" id="fuelTank">Fuel Tank</button>
+    <button onclick="addPart({...smallEngine})" class="part" id="smallEngine">Small Engine</button>
+    <button onclick="addPart({...mediumEngine})" class="part" id="mediumEngine">Medium Engine</button> 
+    <button onclick="addPart({...largeEngine})" class="part" id="largeEngine">Large Engine</button>
+    <button onclick="addPart({...separator})" class="part" id="separator">Separator</button>
+    <!-- ignore that its called probe but in code is capsule shhhhh (cant be arsed to change it) -->
+    <button onclick="addPart({...capsule})" class="part" id="capsule">Probe</button>
+    <button onclick="rocket.splice(rocket.length - 1, rocket.length); drawRocket()" class="part" id="remove">Remove top</button>
+    <p id="height"></p>
+    <p id="fuel"></p>
+    <p id="speed"></p>
+    <p id="error"></p>
+    <p id="enginePowerText">Engine Power Scale:</p>
+    <button onclick="separate()" id="separate">separate</button>
+    <script src="script.js"></script>    
+</body>
+</html>
