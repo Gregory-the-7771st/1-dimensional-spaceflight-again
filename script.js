@@ -97,7 +97,7 @@ function gameLoop() {
     position += speed;
     
     //update the best height
-    if(position > parseInt(bestHeight)) {
+    if(position / 80 > parseInt(bestHeight)) {
         bestHeight = Math.round(position / 80);
         setCookie("bestHeight", bestHeight);
     }
